@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
-import Counter from "./counter.jsx"
-import Reset from "./reset.jsx"
+import React, { useRef, useState } from 'react'
+import Insert from "./Insert"
+import Display from "./Display"
 const App = () => {
-  const [count,setCounter]=useState(0);
+  const [name,setName]=useState("");
+ 
   return (
     <div>
 
-        <h1>{count}</h1>
-      <Counter count={count} setCount={setCounter}/>
-      <Reset setCount={setCounter}/>
+       <Insert setName={setName}/>
+      <Display name={name}/>
     </div>
   )
 }
