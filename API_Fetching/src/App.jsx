@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import "./App.css"
 import axios from 'axios';
+import Loading from './Loading/Loading';
 const App = () => {
   const [products,setProducts]=useState([]);
-
-
+  const [loading,setloading]=useState(true);
+  const [error,setError]=useState(null);
   useEffect(()=>{
     //fetch("https://fakestoreapi.com/products")
   //  .then((res)=>res.json())
    // .then((data)=>setProducts(data));
    axios.get("https://fakestoreapi.com/products")
-   .then((res)=>setProducts(res.data))
-   .catch((e)=>console.log(e));
+   .then((res)=>{setProducts(res.data)
+     setloading(false);
+   })
+   .catch((e)=>{console.log(e)
+       setloading(false);
+       setError("Please Try Later .. ")
+
+   });
 
   },[]);
   return (
@@ -37,6 +44,9 @@ const App = () => {
       }
 
       </div>
+        <div>{loading&&(<Loading/>)}</div>
+        <div>{error&&(<h2>{error}</h2>)}</div>
+
     </div>
   )
 }
