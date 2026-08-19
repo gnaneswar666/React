@@ -1,12 +1,15 @@
 import React from 'react';
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './components/Home';
-import About from './components/About';
-import Products from './components/Products';
+import Home from './pages/Home';
+import About from './pages/About';
+import Products from './pages/Products';
 import Navbar from './components/Navbar';
 import ProductDetails from './components/ProductDetails'
-import ErrorPage from './components/ErrorPage';
+import ErrorPage from './pages/ErrorPage';
+import Shop from './pages/Shop';
+import Men from './components/Men';
+import Women from './components/Women';
 // ✅ Create router once, outside the component
 const router = createBrowserRouter([
   {
@@ -44,6 +47,23 @@ const router = createBrowserRouter([
         <ProductDetails />
       </div>
     ),
+  },
+  {
+    path:"/Shop",
+    element: <div>
+      <Navbar/>
+      <Shop/>
+    </div>,
+    children:[
+      {
+        path:"men",
+        element:<Men/>
+      },
+       {
+        path:"women",
+        element:<Women/>
+      }
+    ]
   },
   {
     path: "*",
