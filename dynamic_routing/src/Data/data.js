@@ -218,7 +218,7 @@ const products = [
   {
     id: 28,
     title: "Track Pants",
-    gender: "Men",
+    gender: "Women",
     img: "https://images.unsplash.com/photo-1552902865-b72c031ac5ea",
     price: 1500,
     description: "Comfortable track pants"

@@ -56,12 +56,20 @@ const router = createBrowserRouter([
     </div>,
     children:[
       {
+        index:true,
+        element:<Products/>
+      },
+      {
         path:"men",
         element:<Men/>
       },
        {
         path:"women",
         element:<Women/>
+      },
+      {
+        path:"*",
+        element:<ErrorPage/>
       }
     ]
   },
